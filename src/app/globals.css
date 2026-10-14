@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-sans-src), system-ui, sans-serif;
+  --font-mono: var(--font-mono-src), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+  }
+}
+
+/* hero entra linha a linha */
+.hero-line {
+  display: inline-block;
+  animation: hero-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-line-2 { animation-delay: 120ms; }
+.hero-line-3 { animation-delay: 240ms; }
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+/* widgets aparecem em sequência */
+.widget-in {
+  animation: widget-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes widget-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* faixa que corre sozinha */
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* aba de pasta dos superpoderes */
+.folder-tab {
+  clip-path: path("M0 80 L0 32 Q0 2 30 2 L198 2 Q226 2 240 20 C254 36 264 40 300 40 L320 40 L320 80 Z");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line, .widget-in { animation: none; }
+  .marquee-track { animation: none; }
+}
