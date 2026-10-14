@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { bodyClass } from "../fonts";
 import "../globals.css";
+import { pt } from "@/content/pt";
 
-export const metadata: Metadata = {
-  title: "D'Artagnan Romann · Dev full stack",
-  description: "Dev full stack que resolve problemas: automatizo processos, conecto sistemas e entendo de marketing, de SEO a tráfego pago no Google e na Meta.",
-};
+export const metadata: Metadata = { title: pt.meta.title, description: pt.meta.description };
 
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
